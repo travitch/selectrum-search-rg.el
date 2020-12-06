@@ -76,8 +76,7 @@ otherwise uses the current working directory.
          (dir (if project-dir project-dir default-directory))
          (word (if (use-region-p)
                    (buffer-substring-no-properties (region-beginning) (region-end))
-                 (let* ((sym (symbol-at-point)) (symn (symbol-name sym)))
-                   (if (and sym (> 50 (length symn) 3)) symn nil))))
+                 nil))
          (command (if (memq system-type '(ms-dos windows-nt))
                       "rg -M 240 --with-filename --no-heading --line-number --color never -S -e <R> ."
                     "rg -M 240 --with-filename --no-heading --line-number --color never -S -e <R>"))
